@@ -1,5 +1,8 @@
 # cc-whereis
 
+[![Built with Claude Code](https://img.shields.io/badge/built%20with-Claude%20Code-d97757)](https://claude.com/claude-code)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
 **Claude Code doesn't know where your other projects are. This tells it.**
 
 You're in a session rooted at project A. You ask for something from project B.
@@ -108,6 +111,61 @@ may not.
 
 Frequency tracking, telemetry, network calls, or writes into a mapped project.
 The map resolves; it does not act.
+
+## Written by Claude Code
+
+Every line here — the skill, the manifests, the example config, this README —
+was written by Claude Code. No part of it was hand-authored; a human directed
+the work, reviewed it, and decided what shipped.
+
+Worth stating plainly rather than hiding, because it's also why the repo is
+shaped the way it is. The entire implementation is one markdown file that a
+model reads at runtime. A tool whose only moving part is a prompt, written by
+the thing that runs it, ought to be legible to the next one.
+
+## Agents welcome
+
+**Pull requests from coding agents are welcome here on the same terms as any
+other.** No disclosure penalty, no separate review queue, no "human-authored
+only" rule. If the change is right, it's right.
+
+There is nothing to build and nothing to install — the whole repo is seven
+files, and it runs offline with no network, no API keys and no services to
+stand up:
+
+| Path | What it is |
+|---|---|
+| `skills/whereis/SKILL.md` | **The entire implementation.** Prose, not code — it is read by a model, so edits here are behaviour changes that no test can judge |
+| `examples/projects.conf` | The config format, annotated. The normative spec for what a valid map looks like |
+| `.claude-plugin/plugin.json` | Plugin manifest |
+| `.claude-plugin/marketplace.json` | Marketplace entry; its `version` must agree with `plugin.json` |
+
+Because the implementation is a prompt, "correct" is defined by invariants
+rather than by assertions. A change that breaks one of these is wrong even if
+it reads well:
+
+1. **No runtime.** No binary, no Node, no Python, no per-platform build. If
+   something seems to need a process, it needs a better prompt. This is what
+   makes it installable everywhere Claude Code runs, native Windows included.
+2. **Zero context cost until invoked.** Only the skill's `description` is
+   resident; the body and the map load on demand. No hooks, no `SessionStart`,
+   nothing eager. A regression here is a correctness bug, not a perf nit — the
+   whole pitch is context hygiene.
+3. **Never guess a path.** A name whose directory is gone is reported as
+   "known label, missing directory". No fuzzy match, no similarly-named
+   sibling, no filesystem search. Silently resolving to the wrong project is
+   worse than not resolving at all, because the user can't audit a path they
+   never saw.
+4. **Ambiguity is an error.** A name claimed by two projects fails with both
+   candidates named. Never pick the first match.
+5. **No quoting in the config format.** A value is everything after the `=`,
+   trimmed. That is what makes `C:\Users\you\proj` safe in a format with no
+   parser to catch a bad escape. Don't "improve" it back toward TOML or YAML.
+6. **The map resolves; it does not act.** No writes into mapped projects, no
+   commands run in them, no network, no telemetry, no frequency tracking.
+
+If you want to change one of those rather than work within it, open an issue
+first — they're the design, not accidents.
 
 ## License
 
