@@ -11,7 +11,7 @@
       "name": "cc-whereis",
       "source": "./",
       "description": "Claude Code doesn't know where your other projects are. Keep one map of name/alias to project root on this machine, and \"grab the auth middleware from Dashboard\" resolves from any session.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "category": "productivity",
       "homepage": "https://github.com/mihai-valentin/cc-whereis"
     }

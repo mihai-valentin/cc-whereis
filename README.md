@@ -89,9 +89,11 @@ is one markdown file plus your config; Claude resolves against it with its own
 `Read`, and validates with `ls`. That's why it installs anywhere Claude Code
 runs, native Windows included.
 
-It costs **zero context until you actually need it** — the skill's body loads on
-demand, not at session start — which is rather the point of a tool whose pitch
-is "stop putting paths in your context."
+Its resting cost is **one line, about 220 tokens** — the skill's description,
+so Claude knows it exists. The body and your map load only when a lookup
+actually happens, and nothing is read at session start. That's the honest
+version of "zero context": not literally nothing, but one line instead of
+thirty paths pasted into every project's CLAUDE.md.
 
 ## Status: v0, deliberately small
 
