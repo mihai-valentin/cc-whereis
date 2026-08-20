@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "cc-whereis",
+  "displayName": "cc-whereis",
+  "version": "0.1.0",
+  "description": "Claude Code doesn't know where your other projects are. Keep one map of name/alias to project root on this machine, and \"grab the auth middleware from Dashboard\" resolves from any session. Markdown and one config file — no runtime, and zero context until you need it.",
+  "author": {
+    "name": "mihai-valentin",
+    "url": "https://github.com/mihai-valentin"
+  },
+  "homepage": "https://github.com/mihai-valentin/cc-whereis",
+  "repository": "https://github.com/mihai-valentin/cc-whereis",
+  "license": "MIT",
+  "keywords": [
+    "projects",
+    "paths",
+    "navigation",
+    "context",
+    "monorepo",
+    "productivity"
+  ]
+}

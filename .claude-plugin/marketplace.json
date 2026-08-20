@@ -1,0 +1,19 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "cc-whereis",
+  "description": "A map of where your projects live, for Claude Code",
+  "owner": {
+    "name": "mihai-valentin",
+    "url": "https://github.com/mihai-valentin"
+  },
+  "plugins": [
+    {
+      "name": "cc-whereis",
+      "source": "./",
+      "description": "Claude Code doesn't know where your other projects are. Keep one map of name/alias to project root on this machine, and \"grab the auth middleware from Dashboard\" resolves from any session.",
+      "version": "0.1.0",
+      "category": "productivity",
+      "homepage": "https://github.com/mihai-valentin/cc-whereis"
+    }
+  ]
+}

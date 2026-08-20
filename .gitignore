@@ -1,0 +1,15 @@
+# Local scratch
+/tmp/
+/out/
+
+# Workspace-internal: planning, specs, meta-project rules and orchestration
+# state. These describe how and why the tool was built, and the workspace it
+# was built in — not the tool. Kept on disk, never published.
+CLAUDE.md
+idea.md
+.claude/
+.agent-orch/
+notes/
+docs/internal/
+*.plan.md
+*.spec.md
