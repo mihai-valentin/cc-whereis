@@ -1,0 +1,5 @@
+# Keep LF in the working tree on every platform. core.autocrlf=true would
+# otherwise hand Windows checkouts CRLF, and this repo is read as much as it
+# is run: SKILL.md is a prompt a model parses, and projects.conf is a config
+# a human hand-edits. Neither wants stray carriage returns.
+* text=auto eol=lf
